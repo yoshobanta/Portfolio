@@ -11,7 +11,7 @@
     --bg-card: #f8f9fa;
     --border-color: #ddd;
     --shadow-color: rgba(0, 0, 0, 0.05);
-    --header-bg: rgba(255, 255, 255, 0.95);
+    --header-bg: #ffffff;
     --footer-bg: #2c3e50;
     --footer-text: #ffffff;
     --timeline-line: #3498db;
@@ -35,7 +35,7 @@ body.dark-mode {
     --bg-card: #2c2c2c;
     --border-color: #444;
     --shadow-color: rgba(0, 0, 0, 0.2);
-    --header-bg: rgba(30, 30, 30, 0.95);
+    --header-bg: #1e1e1e;
     --footer-bg: #1a1a1a;
     --footer-text: #f8f9fa;
     --timeline-line: #3498db;
@@ -144,6 +144,7 @@ header {
     padding: 1rem 5%;
     max-width: 1200px;
     margin: 0 auto;
+    height: 70px; /* Fixed height for header */
 }
 
 .logo {
@@ -232,25 +233,43 @@ header {
     transition: all 0.3s ease;
 }
 
-/* Hero Section */
+/* Hero Section - FIXED */
 .hero {
     display: flex;
     align-items: center;
     min-height: 100vh;
-    padding: 0 5%;
+    /* Add top padding equal to header height plus extra space */
+    padding-top: 100px;
+    padding-bottom: 50px;
+    padding-left: 5%;
+    padding-right: 5%;
     max-width: 1200px;
     margin: 0 auto;
+    background-color: var(--bg-color); /* Ensure solid background */
+    position: relative; /* For positioning */
+    z-index: 1; /* Above header */
 }
 
 .hero-content {
     flex: 1;
     padding-right: 2rem;
+    position: relative; /* For stacking context */
+    z-index: 2; /* Ensure content is above everything */
 }
 
 .hero-content h1 {
     font-size: 3.5rem;
     margin-bottom: 1rem;
-    color: var(--text-color);
+    color: var(--text-color) !important; /* Force solid color */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    display: block;
+    clear: both;
+    opacity: 1 !important; /* Force full opacity */
+    text-shadow: none !important; /* Remove any text shadow */
+    background-color: transparent !important; /* No background */
+    position: relative;
+    z-index: 10; /* Highest priority */
 }
 
 .hero-content h2 {
@@ -293,6 +312,8 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    z-index: 2; /* Ensure image is above background */
 }
 
 .profile-img {
@@ -301,6 +322,7 @@ header {
     border-radius: 50%;
     overflow: hidden;
     box-shadow: 0 10px 30px var(--shadow-color);
+    border: 5px solid var(--bg-secondary); /* Solid border */
 }
 
 .profile-img img {
@@ -796,6 +818,16 @@ footer {
 }
 
 /* Responsive Styles */
+@media (max-width: 1200px) {
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+    
+    .hero-content h2 {
+        font-size: 1.8rem;
+    }
+}
+
 @media (max-width: 992px) {
     .hero {
         flex-direction: column;
@@ -807,8 +839,33 @@ footer {
         margin-bottom: 2rem;
     }
     
+    .hero-content h1 {
+        font-size: 2.5rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .hero-content h2 {
+        font-size: 1.6rem;
+        margin-bottom: 1.2rem;
+    }
+    
+    .hero-content p {
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .hero-buttons {
+        margin-bottom: 1.5rem;
+    }
+    
     .hero-buttons .btn {
         margin: 0.5rem;
+        padding: 10px 20px;
+    }
+    
+    .profile-img {
+        width: 250px;
+        height: 250px;
     }
     
     .contact-container {
@@ -850,12 +907,37 @@ footer {
         font-size: 1rem;
     }
     
+    .hero {
+        padding-top: 90px; /* Increased padding for smaller screens */
+    }
+    
     .hero-content h1 {
-        font-size: 2.5rem;
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
     }
     
     .hero-content h2 {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+    }
+    
+    .hero-content p {
+        font-size: 1rem;
+        margin-bottom: 1.2rem;
+    }
+    
+    .hero-buttons {
+        margin-bottom: 1.2rem;
+    }
+    
+    .hero-buttons .btn {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+    
+    .profile-img {
+        width: 220px;
+        height: 220px;
     }
     
     .timeline::before {
@@ -889,16 +971,32 @@ footer {
         font-size: 2rem;
     }
     
+    .hero {
+        padding-top: 80px; /* Further increased for mobile */
+    }
+    
     .hero-content h1 {
-        font-size: 2rem;
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
     }
     
     .hero-content h2 {
         font-size: 1.2rem;
+        margin-bottom: 0.8rem;
     }
     
     .hero-content p {
-        font-size: 1rem;
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+    }
+    
+    .hero-buttons {
+        margin-bottom: 1rem;
+    }
+    
+    .hero-buttons .btn {
+        padding: 8px 14px;
+        font-size: 0.85rem;
     }
     
     .profile-img {
@@ -922,5 +1020,39 @@ footer {
         width: 30px;
         height: 30px;
         font-size: 0.9rem;
+    }
+}
+
+/* Extra small devices (phones, 400px and down) */
+@media (max-width: 400px) {
+    .hero {
+        padding-top: 70px; /* Further increased for very small screens */
+    }
+    
+    .hero-content h1 {
+        font-size: 1.5rem;
+        line-height: 1.2;
+    }
+    
+    .hero-content h2 {
+        font-size: 1rem;
+    }
+    
+    .hero-content p {
+        font-size: 0.85rem;
+    }
+    
+    .hero-buttons .btn {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .profile-img {
+        width: 180px;
+        height: 180px;
     }
 }
