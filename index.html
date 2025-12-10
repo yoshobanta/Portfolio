@@ -3,7 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yoshobanta Bisoi | Full Stack Web Developer</title>
+    <meta name="description" content="Yoshobanta Bisoi - Full Stack Web Developer specializing in Django & REST APIs. Building production-ready backend systems with Python, Django REST Framework, and PostgreSQL.">
+    <meta name="keywords" content="Django Developer, Python Developer, REST API, Full Stack Developer, Backend Developer, Django REST Framework, PostgreSQL, Web Development">
+    <meta name="author" content="Yoshobanta Bisoi">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yoshobanta.dev/">
+    <meta property="og:title" content="Yoshobanta Bisoi | Django & REST API Developer">
+    <meta property="og:description" content="Full Stack Web Developer specializing in Django & REST APIs. Building production-ready backend systems with Python and PostgreSQL.">
+    <meta property="og:image" content="resources/main.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://yoshobanta.dev/">
+    <meta property="twitter:title" content="Yoshobanta Bisoi | Django & REST API Developer">
+    <meta property="twitter:description" content="Full Stack Web Developer specializing in Django & REST APIs. Building production-ready backend systems with Python and PostgreSQL.">
+    <meta property="twitter:image" content="resources/main.jpg">
+    
+    <title>Yoshobanta Bisoi | Full Stack Web Developer - Django & REST APIs</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="resources/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="resources/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="resources/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="resources/favicon_io/site.webmanifest">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -17,8 +39,8 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="#experience">Experience</a></li>
                 <li><a href="#education">Education</a></li>
+                <li><a href="#certifications">Certifications</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="theme-toggle">
@@ -38,8 +60,8 @@
     <section id="home" class="hero">
         <div class="hero-content">
             <h1>Yoshobanta Bisoi</h1>
-            <h2>Full Stack Web Developer</h2>
-            <p>Aspiring developer with expertise in HTML, CSS, JavaScript, and growing proficiency in Python and backend technologies.</p>
+            <h2>Full Stack Web Developer — Specializing in Django & REST APIs</h2>
+            <p>Aspiring backend-focused developer skilled in HTML, CSS, JavaScript, and currently building production-ready systems using Python, Django, Django REST Framework, and PostgreSQL.</p>
             <div class="hero-buttons">
                 <a href="#projects" class="btn btn-primary">View My Work</a>
                 <a href="#contact" class="btn btn-secondary">Contact Me</a>
@@ -51,8 +73,9 @@
             </div>
         </div>
         <div class="hero-image">
-            <div class="profile-img">
-                <img src="https://z-cdn-media.chatglm.cn/files/303bcb18-7363-4376-8abb-5035646f1584_1.png?auth_key=1789970976-28d2d145a07d451d81c6690910f20d29-0-c84b110acdb7752a123e45f9c219ec62" alt="Yoshobanta Bisoi">
+            <!-- Fixed Main Photo - This stays the same -->
+            <div class="profile-img main-photo">
+                <img src="resources/main.jpg" alt="Yoshobanta Bisoi" id="main-photo">
             </div>
         </div>
     </section>
@@ -61,13 +84,20 @@
     <section id="about" class="about">
         <h2 class="section-title">About Me</h2>
         <div class="about-content">
+            <!-- Rotating Photo - Changes on each refresh -->
+            <div class="about-image">
+                <div class="profile-img rotating-photo">
+                    <img src="" alt="Yoshobanta Bisoi" id="rotating-photo">
+                </div>
+            </div>
             <div class="about-text">
-                <p>I'm an aspiring Full Stack Web Developer with practical experience in HTML, CSS, JavaScript, and a growing proficiency in Python and backend technologies. I have demonstrated ability to build interactive, user-friendly projects with clean and maintainable code.</p>
-                <p>Known for strong problem-solving skills, a growth-oriented mindset, and a commitment to continuous learning. I'm eager to contribute to a collaborative, fast-paced development team and grow as a Python Full Stack Developer.</p>
+                <p>I'm a Full Stack Web Developer specializing in Django & REST APIs, with a strong foundation in HTML, CSS, and JavaScript, and a growing focus on backend engineering using Python.</p>
+                <p>I enjoy building clean, scalable, and user-friendly applications. Right now, I'm deepening my backend skills by working on real projects involving Django, Django REST Framework, PostgreSQL, and API development.</p>
+                <p>I'm passionate about solving problems, learning continuously, and writing code that is simple, reliable, and maintainable. My goal is to grow into a strong backend developer while still keeping my full-stack versatility.</p>
                 <div class="about-info">
                     <div class="info-item">
                         <i class="fas fa-map-marker-alt"></i>
-                        <span>Rourkela, Odisha</span>
+                        <span>Bangalore, Karnataka</span>
                     </div>
                     <div class="info-item">
                         <i class="fas fa-phone"></i>
@@ -86,51 +116,78 @@
     <section id="skills" class="skills">
         <h2 class="section-title">My Skills</h2>
         <div class="skills-container">
-            <div class="skill-category">
-                <h3>Programming Languages</h3>
+            <div class="skill-category featured">
+                <h3><i class="fas fa-server"></i> Backend Development</h3>
                 <div class="skill-items">
-                    <div class="skill-item">JavaScript</div>
                     <div class="skill-item">Python</div>
+                    <div class="skill-item">Django</div>
+                    <div class="skill-item">Django REST Framework</div>
+                    <div class="skill-item">PostgreSQL</div>
+                    <div class="skill-item">MySQL</div>
+                    <div class="skill-item">RESTful APIs</div>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3><i class="fas fa-laptop-code"></i> Frontend Development</h3>
+                <div class="skill-items">
+                    <div class="skill-item">HTML5</div>
+                    <div class="skill-item">CSS3</div>
+                    <div class="skill-item">JavaScript</div>
+                    <div class="skill-item">Bootstrap</div>
+                    <div class="skill-item">Responsive Design</div>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3><i class="fas fa-code"></i> Programming Languages</h3>
+                <div class="skill-items">
+                    <div class="skill-item">Python</div>
+                    <div class="skill-item">JavaScript</div>
                     <div class="skill-item">Java</div>
                     <div class="skill-item">C/C++</div>
                 </div>
             </div>
             <div class="skill-category">
-                <h3>Web Technologies</h3>
+                <h3><i class="fas fa-tools"></i> DevOps & Tools</h3>
                 <div class="skill-items">
-                    <div class="skill-item">HTML5</div>
-                    <div class="skill-item">CSS3</div>
-                    <div class="skill-item">Responsive Design</div>
-                    <div class="skill-item">Bootstrap</div>
-                </div>
-            </div>
-            <div class="skill-category">
-                <h3>Databases</h3>
-                <div class="skill-items">
-                    <div class="skill-item">MySQL</div>
-                </div>
-            </div>
-            <div class="skill-category">
-                <h3>Version Control</h3>
-                <div class="skill-items">
-                    <div class="skill-item">Git</div>
-                    <div class="skill-item">GitHub</div>
-                </div>
-            </div>
-            <div class="skill-category">
-                <h3>Operating Systems</h3>
-                <div class="skill-items">
-                    <div class="skill-item">Windows</div>
-                    <div class="skill-item">Linux (basic command line)</div>
-                </div>
-            </div>
-            <div class="skill-category">
-                <h3>Tools & Platforms</h3>
-                <div class="skill-items">
+                    <div class="skill-item">Git & GitHub</div>
+                    <div class="skill-item">Linux CLI</div>
                     <div class="skill-item">VS Code</div>
-                    <div class="skill-item">Jupyter Notebook</div>
                     <div class="skill-item">Postman</div>
-                    <div class="skill-item">Canva</div>
+                    <div class="skill-item">Docker</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Currently Learning Section -->
+    <section id="learning" class="learning">
+        <h2 class="section-title">Currently Learning</h2>
+        <div class="learning-container">
+            <div class="learning-card">
+                <div class="learning-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="learning-content">
+                    <h3>Django Advanced & REST APIs</h3>
+                    <p>Building production-ready backend systems with Django REST Framework, PostgreSQL, and API design patterns</p>
+                </div>
+            </div>
+            <div class="learning-card">
+                <div class="learning-icon">
+                    <i class="fas fa-docker"></i>
+                </div>
+                <div class="learning-content">
+                    <h3>DevOps & Deployment</h3>
+                    <p>Docker, containerization, CI/CD pipelines, and cloud deployment strategies</p>
+                </div>
+            </div>
+            <div class="learning-card">
+                <div class="learning-icon">
+                    <i class="fas fa-code-branch"></i>
+                </div>
+                <div class="learning-content">
+                    <h3>Data Structures & Algorithms</h3>
+                    <p>Practicing on LeetCode and solving problems locally, focusing on problem-solving and optimization techniques</p>
                 </div>
             </div>
         </div>
@@ -146,7 +203,11 @@
             </div>
             <div class="project-info">
                 <h3>Kharidlo - Online Store</h3>
-                <p><strong>Technologies:</strong> Python, Streamlit, Collections</p>
+                <div class="tech-stack">
+                    <span class="tech-badge">Python</span>
+                    <span class="tech-badge">Streamlit</span>
+                    <span class="tech-badge">Collections</span>
+                </div>
                 <p>A comprehensive e-commerce platform that allows users to browse products, add them to cart, and checkout. The system includes an admin dashboard for managing inventory and viewing sales history. Features include user authentication, product management, discount calculations, and sales tracking.</p>
                 <div class="project-links">
                     <a href="https://kharidlocart.streamlit.app/" class="btn btn-primary">View Project</a>
@@ -161,7 +222,12 @@
             </div>
             <div class="project-info">
                 <h3>Bank Management System</h3>
-                <p><strong>Technologies:</strong> Python, Streamlit, Pandas, hashlib</p>
+                <div class="tech-stack">
+                    <span class="tech-badge">Python</span>
+                    <span class="tech-badge">Streamlit</span>
+                    <span class="tech-badge">Pandas</span>
+                    <span class="tech-badge">Security</span>
+                </div>
                 <p>A secure banking system that allows users to create accounts, deposit and withdraw money, check balances, view transaction statements, change PIN, and transfer funds. The system uses PIN hashing for security and includes comprehensive transaction tracking and account management features.</p>
                 <div class="project-links">
                     <a href="https://yoshobanksystem.streamlit.app/" class="btn btn-primary">View Project</a>
@@ -176,7 +242,12 @@
             </div>
             <div class="project-info">
                 <h3>Personal Portfolio Website</h3>
-                <p><strong>Technologies:</strong> HTML5, CSS3, JavaScript</p>
+                <div class="tech-stack">
+                    <span class="tech-badge">HTML5</span>
+                    <span class="tech-badge">CSS3</span>
+                    <span class="tech-badge">JavaScript</span>
+                    <span class="tech-badge">Responsive</span>
+                </div>
                 <p>Designed a responsive personal portfolio website from scratch using HTML5 and CSS3 to showcase projects and skills. Implemented modern web design principles and intuitive UI/UX to ensure a seamless user experience across various devices and screen sizes.</p>
                 <div class="project-links">
                     <a href="#" class="btn btn-primary">View Project</a>
@@ -186,28 +257,6 @@
         </div>
     </div>
 </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="experience">
-        <h2 class="section-title">Experience</h2>
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-icon">
-                    <i class="fas fa-briefcase"></i>
-                </div>
-                <div class="timeline-content">
-                    <h3>IBM - Data Scientist Micro-Internship</h3>
-                    <span class="timeline-date">February 2024 - March 2024</span>
-                    <span class="timeline-location">Odisha</span>
-                    <ul>
-                        <li>Developed practical Python programming and data manipulation skills.</li>
-                        <li>Collaborated effectively on data-driven projects.</li>
-                        <li>Gained hands-on experience in data analysis and visualization.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Education Section -->
     <section id="education" class="education">
@@ -221,7 +270,7 @@
                     <h3>B.Tech in Computer Science and Engineering</h3>
                     <p>Silicon Institute Of Technology, Odisha</p>
                     <p>CGPA: 8.37/10</p>
-                    <span class="education-date">Expected May 2025</span>
+                    <span class="education-date">Graduated May 2025</span>
                 </div>
             </div>
             
@@ -262,7 +311,6 @@
                 <div class="certification-info">
                     <h3>NPTEL Certification on Programming, Data Structures And Algorithms Using Python</h3>
                     <p>IIT Madras</p>
-                    <p>Score: 70/100</p>
                 </div>
             </div>
             
@@ -273,7 +321,6 @@
                 <div class="certification-info">
                     <h3>NPTEL Certification on Programming In Java</h3>
                     <p>IIT Kanpur</p>
-                    <p>Score: 58/100</p>
                 </div>
             </div>
             
@@ -284,6 +331,7 @@
                 <div class="certification-info">
                     <h3>IBM SkillsBuild Data Science Micro Internship</h3>
                     <p>IBM</p>
+                    <p>February 2024 - March 2024</p>
                 </div>
             </div>
             
@@ -308,7 +356,7 @@
                     <i class="fas fa-map-marker-alt"></i>
                     <div>
                         <h3>Location</h3>
-                        <p>Rourkela, Odisha</p>
+                        <p>Bangalore, Karnataka</p>
                     </div>
                 </div>
                 <div class="contact-item">

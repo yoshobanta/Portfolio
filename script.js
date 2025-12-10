@@ -60,8 +60,8 @@ const themeToggleBtn = document.getElementById('theme-toggle-btn');
 const body = document.body;
 const themeIcon = themeToggleBtn.querySelector('i');
 
-// Check for saved theme preference or default to light mode
-const currentTheme = localStorage.getItem('theme') || 'light';
+// Check for saved theme preference or default to dark mode
+const currentTheme = localStorage.getItem('theme') || 'dark';
 if (currentTheme === 'dark') {
     body.classList.add('dark-mode');
     themeIcon.classList.remove('fa-sun');
@@ -141,7 +141,7 @@ if (contactForm) {
 
 // Add animation on scroll
 const animateOnScroll = () => {
-    const elements = document.querySelectorAll('.project-card, .education-card, .certification-card, .timeline-item');
+    const elements = document.querySelectorAll('.project-card, .education-card, .certification-card, .timeline-item, .skill-category, .learning-card');
     
     elements.forEach(element => {
         const elementPosition = element.getBoundingClientRect().top;
@@ -155,7 +155,7 @@ const animateOnScroll = () => {
 };
 
 // Set initial styles for animation
-document.querySelectorAll('.project-card, .education-card, .certification-card, .timeline-item').forEach(element => {
+document.querySelectorAll('.project-card, .education-card, .certification-card, .timeline-item, .skill-category, .learning-card').forEach(element => {
     element.style.opacity = '0';
     element.style.transform = 'translateY(20px)';
     element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
@@ -165,3 +165,87 @@ document.querySelectorAll('.project-card, .education-card, .certification-card, 
 window.addEventListener('scroll', animateOnScroll);
 // Run once on load to check for elements already in view
 window.addEventListener('load', animateOnScroll);
+
+// ========================================
+// Enhanced Scroll Animations
+// ========================================
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -100px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, observerOptions);
+
+// Observe all animated elements
+document.addEventListener('DOMContentLoaded', () => {
+    const animatedElements = document.querySelectorAll('.skill-item, .tech-badge, .progress-bar');
+    animatedElements.forEach(el => {
+        el.classList.add('fade-in');
+        observer.observe(el);
+    });
+});
+
+// ========================================
+// Rotating Photos Feature
+// ========================================
+// Array of all your photos from resources folder (excluding main.jpg and main2.webp)
+const rotatingPhotos = [
+    'resources/IMG-20221212-WA0013.jpg',
+    'resources/IMG_20221212_202506_411.webp',
+    'resources/IMG_20221212_202506_520.webp',
+    'resources/IMG_20221212_202507_056.webp'
+];
+
+// Keep track of current photo index for sequential display
+let currentPhotoIndex = 0;
+
+// Function to get the next photo in sequence
+function getNextPhoto() {
+    const photo = rotatingPhotos[currentPhotoIndex];
+    currentPhotoIndex = (currentPhotoIndex + 1) % rotatingPhotos.length; // Loop back to start
+    return photo;
+}
+
+// Function to change the photo with fade effect
+function changePhoto() {
+    const rotatingPhotoElement = document.getElementById('rotating-photo');
+    if (rotatingPhotoElement && rotatingPhotos.length > 0) {
+        // Fade out
+        rotatingPhotoElement.style.opacity = '0';
+        
+        // Change image after fade out
+        setTimeout(() => {
+            const nextPhoto = getNextPhoto();
+            rotatingPhotoElement.src = nextPhoto;
+            
+            // Fade in
+            rotatingPhotoElement.style.opacity = '1';
+        }, 300);
+    }
+}
+
+// Set the rotating photo on page load
+document.addEventListener('DOMContentLoaded', () => {
+    const rotatingPhotoElement = document.getElementById('rotating-photo');
+    if (rotatingPhotoElement && rotatingPhotos.length > 0) {
+        // Set main2.webp as the initial photo
+        rotatingPhotoElement.src = 'resources/main2.webp';
+        
+        // Add smooth transition for photo changes
+        rotatingPhotoElement.style.transition = 'opacity 0.3s ease-in-out';
+        
+        // Handle image load error - hide if photo doesn't exist
+        rotatingPhotoElement.onerror = function() {
+            this.parentElement.style.display = 'none';
+        };
+        
+        // Auto-rotate through photos sequentially every 5 seconds
+        setInterval(changePhoto, 5000);
+    }
+});

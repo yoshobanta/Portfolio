@@ -63,6 +63,41 @@ body {
     color: var(--text-color);
     line-height: 1.6;
     transition: background-color 0.3s ease, color 0.3s ease;
+    overflow-x: hidden;
+}
+
+/* Scroll Animation Classes */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.slide-in-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.slide-in-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.slide-in-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.slide-in-right.visible {
+    opacity: 1;
+    transform: translateX(0);
 }
 
 .container {
@@ -123,6 +158,21 @@ body {
     background-color: var(--primary-color);
     color: white;
     transform: translateY(-2px);
+}
+
+.btn-resume {
+    background: linear-gradient(135deg, var(--accent-color), #c0392b);
+    color: white;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-resume:hover {
+    background: linear-gradient(135deg, #c0392b, var(--accent-color));
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
 }
 
 /* Header Styles */
@@ -323,6 +373,41 @@ header {
     overflow: hidden;
     box-shadow: 0 10px 30px var(--shadow-color);
     border: 5px solid var(--bg-secondary); /* Solid border */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 40px var(--shadow-color);
+}
+
+/* Main photo styling - prominent hero photo */
+.profile-img.main-photo {
+    width: 350px;
+    height: 350px;
+    border-color: var(--primary-color);
+    border-width: 6px;
+    z-index: 3;
+}
+
+/* Rotating photo styling - for about section */
+.profile-img.rotating-photo {
+    width: 280px;
+    height: 280px;
+    opacity: 1;
+    animation: fadeIn 0.5s ease-in-out;
+    border-width: 4px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 0.95;
+        transform: scale(1);
+    }
 }
 
 .profile-img img {
@@ -338,9 +423,20 @@ header {
 }
 
 .about-content {
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+
+.about-image {
+    flex: 0 0 auto;
+}
+
+.about-text {
+    flex: 1;
+    text-align: left;
 }
 
 .about-text p {
@@ -386,12 +482,30 @@ header {
     border-radius: 8px;
     padding: 1.5rem;
     box-shadow: 0 5px 15px var(--shadow-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-category:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px var(--shadow-color);
+}
+
+.skill-category.featured {
+    border: 2px solid var(--primary-color);
+    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-card) 100%);
 }
 
 .skill-category h3 {
     margin-bottom: 1rem;
     color: var(--text-color);
     font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.skill-category h3 i {
+    color: var(--primary-color);
 }
 
 .skill-items {
@@ -407,6 +521,100 @@ header {
     border-radius: 20px;
     font-size: 0.9rem;
     font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.skill-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 3px 10px rgba(52, 152, 219, 0.3);
+}
+
+.skill-item.highlight {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    font-weight: 700;
+}
+
+/* Currently Learning Section */
+.learning {
+    padding: 5rem 5%;
+    background-color: var(--bg-color);
+}
+
+.learning-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.learning-card {
+    background-color: var(--bg-secondary);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 5px 15px var(--shadow-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 4px solid var(--primary-color);
+}
+
+.learning-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px var(--shadow-color);
+}
+
+.learning-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.learning-icon i {
+    font-size: 1.8rem;
+    color: white;
+}
+
+.learning-content h3 {
+    color: var(--text-color);
+    margin-bottom: 0.8rem;
+    font-size: 1.3rem;
+}
+
+.learning-content p {
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.learning-progress {
+    margin-top: 1rem;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background-color: var(--bg-card);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    border-radius: 10px;
+    transition: width 0.5s ease;
+}
+
+.progress-text {
+    font-size: 0.85rem;
+    color: var(--text-lighter);
+    font-style: italic;
 }
 
 /* Projects Section */
@@ -461,6 +669,24 @@ header {
 .project-info p {
     margin-bottom: 1rem;
     color: var(--text-light);
+}
+
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.tech-badge {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .project-links {
@@ -864,8 +1090,28 @@ footer {
     }
     
     .profile-img {
-        width: 250px;
-        height: 250px;
+        width: 280px;
+        height: 280px;
+    }
+    
+    .profile-img.main-photo {
+        width: 300px;
+        height: 300px;
+    }
+    
+    .profile-img.rotating-photo {
+        width: 240px;
+        height: 240px;
+    }
+    
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+    
+    .about-text {
+        text-align: center;
     }
     
     .contact-container {
@@ -940,6 +1186,16 @@ footer {
         height: 220px;
     }
     
+    .profile-img.main-photo {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .profile-img.rotating-photo {
+        width: 200px;
+        height: 200px;
+    }
+    
     .timeline::before {
         left: 30px;
     }
@@ -1004,6 +1260,16 @@ footer {
         height: 200px;
     }
     
+    .profile-img.main-photo {
+        width: 220px;
+        height: 220px;
+    }
+    
+    .profile-img.rotating-photo {
+        width: 180px;
+        height: 180px;
+    }
+    
     .about-info {
         flex-direction: column;
         align-items: center;
@@ -1054,5 +1320,15 @@ footer {
     .profile-img {
         width: 180px;
         height: 180px;
+    }
+    
+    .profile-img.main-photo {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .profile-img.rotating-photo {
+        width: 160px;
+        height: 160px;
     }
 }
