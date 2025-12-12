@@ -1154,7 +1154,7 @@ footer {
     }
     
     .hero {
-        padding-top: 90px; /* Increased padding for smaller screens */
+        padding-top: 120px; /* Increased padding for smaller screens */
     }
     
     .hero-content h1 {
@@ -1228,7 +1228,7 @@ footer {
     }
     
     .hero {
-        padding-top: 80px; /* Further increased for mobile */
+        padding-top: 110px; /* Further increased for mobile */
     }
     
     .hero-content h1 {
@@ -1292,7 +1292,7 @@ footer {
 /* Extra small devices (phones, 400px and down) */
 @media (max-width: 400px) {
     .hero {
-        padding-top: 70px; /* Further increased for very small screens */
+        padding-top: 100px; /* Further increased for very small screens */
     }
     
     .hero-content h1 {
