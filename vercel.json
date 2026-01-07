@@ -2,7 +2,13 @@
   "redirects": [
     {
       "source": "/(.*)",
-      "destination": "https://yoshobantabisoi.site",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.yoshobantabisoi.site"
+        }
+      ],
+      "destination": "https://yoshobantabisoi.site/$1",
       "permanent": true
     }
   ]
