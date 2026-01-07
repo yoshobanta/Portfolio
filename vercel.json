@@ -5,6 +5,17 @@
       "has": [
         {
           "type": "host",
+          "value": "portfolio-of-yoshobanta-bisoi.vercel.app"
+        }
+      ],
+      "destination": "https://yoshobantabisoi.site/$1",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
           "value": "www.yoshobantabisoi.site"
         }
       ],
